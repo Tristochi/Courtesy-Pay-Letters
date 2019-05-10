@@ -40,9 +40,19 @@ def sort_txt_file(input):
     count1 = len(list1) - 1
     count2 = len(list2) - 1
     count3 = len(list3) - 1
-    print("There are ", count1, "records on courtestpay15.txt")
-    print("There are ", count2, "records on courtestpay25.txt")
-    print("There are ", count3, "records on courtestpay35.txt")
+    if count1 > 1:
+        print("There are ", count1, "records on courtestpay15.txt")
+    elif count1 == 1:
+        print("There is ", count1, " record on courtesypay15.txt")
+    if count2 > 1:
+        print("There are ", count2, "records on courtestpay25.txt")
+    elif count2 == 1:
+        print("There is ", count2, "record on courtesypay25.txt")
+    if count3 > 1:
+        print("There are ", count3, "records on courtestpay35.txt")
+    elif count3 == 1:
+        print("There is ", count3, "record on courtesypay35.txt")
+    return None
 
 #This requires a docx for templatePath and outputPath. Both need to have merge fields already inplace.
 #The txtFilePath takes the path of one previously sorted txt file.
@@ -82,7 +92,10 @@ writeToDocx('G:\exports\cpletters\cpletters25.txt', 'G:\exports\cpletters\courte
 writeToDocx('G:\exports\cpletters\cpletters35.txt', 'G:\exports\cpletters\courtesy_pay_35_temp.docx', 
             'G:\exports\cpletters\courtesy_pay_35.docx')
 
-count1 = getRecordsCount('G:\exports\cpletters\cpletters15.txt') - 1
+count1 = getRecordsCount('G:\exports\cpletters\cpletters15.txt') 
+count2 = getRecordsCount('G:\exports\cpletters\cpletters25.txt') 
+count3 = getRecordsCount('G:\exports\cpletters\cpletters35.txt') 
+
 if count1 > 0:
     os.startfile('G:\\exports\cpletters\courtesy_pay_15.docx', 'print')
     time.sleep(2)
@@ -90,7 +103,6 @@ if count1 > 0:
 else:
     print("No 15 day records to print.")
 
-count2 = getRecordsCount('G:\exports\cpletters\cpletters25.txt') - 1
 if count2 > 0:
     os.startfile('G:\\exports\cpletters\courtesy_pay_25.docx', 'print')
     time.sleep(2)
@@ -98,10 +110,9 @@ if count2 > 0:
 else:
     print("No 25 day records to print.")
 
-count3 = getRecordsCount('G:\exports\cpletters\cpletters35.txt') - 1
 if count3 > 0:
     os.startfile('G:\\exports\cpletters\courtesy_pay_35.docx', 'print')
     time.sleep(2)
     print(count3, " 35 day records printed.")
-else:
+else: 
     print("No 35 day records to print.")
