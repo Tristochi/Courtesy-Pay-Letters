@@ -80,39 +80,43 @@ def getRecordsCount(txtFilePath):
 
     return int(len(values))
 
+def main():
+    sort_txt_file('G:\exports\cpletters\cpletters.txt')
 
-sort_txt_file('G:\exports\cpletters\cpletters.txt')
+    writeToDocx('G:\exports\cpletters\cpletters15.txt', 'G:\exports\cpletters\courtesy_pay_15_temp.docx', 
+                'G:\exports\cpletters\courtesy_pay_15.docx')
 
-writeToDocx('G:\exports\cpletters\cpletters15.txt', 'G:\exports\cpletters\courtesy_pay_15_temp.docx', 
-            'G:\exports\cpletters\courtesy_pay_15.docx')
+    writeToDocx('G:\exports\cpletters\cpletters25.txt', 'G:\exports\cpletters\courtesy_pay_25_temp.docx', 
+                'G:\exports\cpletters\courtesy_pay_25.docx')
 
-writeToDocx('G:\exports\cpletters\cpletters25.txt', 'G:\exports\cpletters\courtesy_pay_25_temp.docx', 
-            'G:\exports\cpletters\courtesy_pay_25.docx')
+    writeToDocx('G:\exports\cpletters\cpletters35.txt', 'G:\exports\cpletters\courtesy_pay_35_temp.docx', 
+                'G:\exports\cpletters\courtesy_pay_35.docx')
 
-writeToDocx('G:\exports\cpletters\cpletters35.txt', 'G:\exports\cpletters\courtesy_pay_35_temp.docx', 
-            'G:\exports\cpletters\courtesy_pay_35.docx')
+    count1 = getRecordsCount('G:\exports\cpletters\cpletters15.txt') 
+    count2 = getRecordsCount('G:\exports\cpletters\cpletters25.txt') 
+    count3 = getRecordsCount('G:\exports\cpletters\cpletters35.txt') 
 
-count1 = getRecordsCount('G:\exports\cpletters\cpletters15.txt') 
-count2 = getRecordsCount('G:\exports\cpletters\cpletters25.txt') 
-count3 = getRecordsCount('G:\exports\cpletters\cpletters35.txt') 
+    if count1 > 0:
+        os.startfile('G:\\exports\cpletters\courtesy_pay_15.docx', 'print')
+        time.sleep(2)
+        print(count1, " 15 day records printed.")
+    else:
+        print("No 15 day records to print.")
 
-if count1 > 0:
-    os.startfile('G:\\exports\cpletters\courtesy_pay_15.docx', 'print')
-    time.sleep(2)
-    print(count1, " 15 day records printed.")
-else:
-    print("No 15 day records to print.")
+    if count2 > 0:
+        os.startfile('G:\\exports\cpletters\courtesy_pay_25.docx', 'print')
+        time.sleep(2)
+        print(count2, " 25 day records printed.")
+    else:
+        print("No 25 day records to print.")
 
-if count2 > 0:
-    os.startfile('G:\\exports\cpletters\courtesy_pay_25.docx', 'print')
-    time.sleep(2)
-    print(count2, " 25 day records printed.")
-else:
-    print("No 25 day records to print.")
-
-if count3 > 0:
-    os.startfile('G:\\exports\cpletters\courtesy_pay_35.docx', 'print')
-    time.sleep(2)
-    print(count3, " 35 day records printed.")
-else: 
-    print("No 35 day records to print.")
+    if count3 > 0:
+        os.startfile('G:\\exports\cpletters\courtesy_pay_35.docx', 'print')
+        time.sleep(2)
+        print(count3, " 35 day records printed.")
+    else: 
+        print("No 35 day records to print.")
+        
+if __name__ == "__main__":
+    main()
+    
